@@ -1,0 +1,43 @@
+<div class="container margin-set">
+    <header class="header header-4">
+        <div class="branding">
+            <span class="title">Users</span>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let user of UsersList">
+            <div class="card clickable">
+                <div class="card-block">
+                    <h4 class="card-title">{{user.name}}</h4>
+                    <div class="card-media-block">
+                        <div class="card-media-description">
+                            <span class="card-media-title">
+                                User Name: {{user.username}}
+                            </span>
+                            <span class="card-media-text">
+                                Phone: {{user.phone}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Email: {{user.email}}</li>
+                    <li class="list-group-item">Website: {{user.website}}</li>
+                    <li class="list-group-item">Company: {{user.company.name}}</li>
+                </ul>
+                <div class="card-block">
+                    <h4 class="card-title">Address</h4>
+                    <p class="card-text">
+                        {{user.address.street}},
+                        <br>{{user.address.suite}},
+                        <br>{{user.address.city}},
+                        <br>{{user.address.zipcode}}
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a [routerLink]="['/todo',user.id]" class="btn btn-primary">View Todos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

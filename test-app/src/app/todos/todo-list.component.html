@@ -1,0 +1,54 @@
+<div class="container margin-set">
+    <header class="header header-4">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 page-header">
+            <span class="title back">
+                <a [routerLink]="['/users']">
+                    << Back</a>
+            </span>
+            <span class="title">ToDos</span>
+        </div>
+    </header>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="left">#</th>
+                        <th class="left">ToDo Title</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr aria-colspan="3" *ngIf="TodoList?.length<=0" style="text-align:center">No Records available</tr>
+                    <tr *ngFor="let todo of TodoList let i = index">
+                        <td class="left">{{i+1}}</td>
+                        <td class="left" [ngClass]="{'stiketodo': todo.completed === true }">{{todo.title}}</td>
+                        <td>
+                            <input type="checkbox" [checked]="todo.completed" (change)="StatusChange(todo)">
+                        </td>
+                        <td><clr-icon shape="trash" size="20" class="is-solid" (click)="DeleteTodo(todo)" style="cursor:pointer"></clr-icon></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+            <form (ngSubmit)="CreateToDo()" ngNativeValidate>
+                <section class="form-block">
+                    <label>Create Todo</label>
+                    <div class="form-group">
+                        <label class="required">Todo Title</label>
+                        <label  aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation invalid tooltip-sm">
+                            <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="TodoTitle" required>
+                            <span class="tooltip-content">
+                                This field cannot be empty!
+                            </span>
+                        </label>
+                    </div>
+                </section>
+                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-secondary" (click)="TodoTitle=''">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

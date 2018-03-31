@@ -1,0 +1,33 @@
+@import url("https://unpkg.com/clarity-ui/clarity-ui.min.css");
+@import url("https://unpkg.com/clarity-icons/clarity-icons.min.css");
+
+.margin-set{
+    margin-top:20px;
+    margin-bottom: 20px; 
+}
+.stiketodo{
+    text-decoration: line-through;
+}
+.back{
+    float: right;
+}
+.page-header{
+    padding: 15px;
+}
+.back a{
+    color: white;
+}
+.back a:hover{
+    color: white;
+}
+
+tbody {
+    display:block;
+    max-height:350px;
+    overflow:auto;
+}
+thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+}
