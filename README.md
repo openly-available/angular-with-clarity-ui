@@ -1,1 +1,1 @@
-# Intellect
+# Angular app created using clarity UI
