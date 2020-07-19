@@ -26,4 +26,4 @@ jobs:
       run: npm install -g surge
 
     - name: Deploy to Surge
-      run:  surge ./test-app/dist https://angular-clarity-ui.surge.sh/ --token 56746caab160b942ed59528dbacb4c4f
+      run:  surge ./test-app/dist https://angular-clarity-ui.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
